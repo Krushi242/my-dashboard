@@ -7,7 +7,7 @@ const Login = () => {
         
         {/* Logo */}
         <div className="logo">
-          <img src="src/assets/logo.svg" alt="Logo" />
+          <img src="/images/logo.svg" />
         </div>
 
         {/* Subtitle */}
