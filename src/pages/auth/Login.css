@@ -1,7 +1,7 @@
 /* Background */
 .login {
   height: 100vh;
-  background: #070b10;
+  background: #05070B;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,11 +10,12 @@
 
 /* Card */
 .login-card {
-  width: 420px;
-  padding: 40px;
-  background: #0c1117;
+  width: 40%;
+  max-width: 550px;
+  padding: 50px;
+  background: #0A0C10;
   border-radius: 12px;
-  border: 1px solid #1a1f26;
+  border: 1px solid #2A2A2A;
   text-align: center;
 }
 
