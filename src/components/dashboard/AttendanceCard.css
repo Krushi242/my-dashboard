@@ -1,0 +1,94 @@
+.attendance-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendance-card {
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.attendance-card--green {
+  background: linear-gradient(135deg, #1DB954 0%, #159040 100%);
+}
+
+.attendance-card--dark {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.attendance-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.attendance-card__time-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2px;
+}
+
+.attendance-card__time {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.attendance-card__break-row {
+  display: flex;
+  gap: 24px;
+}
+
+.attendance-card__btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: opacity 0.2s, transform 0.15s;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.attendance-card__btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.attendance-card__btn--out {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.attendance-card__break-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.attendance-card__btn--outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 8px 20px;
+}
+
+.attendance-card__btn--outline:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.attendance-card__btn--active {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
