@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Login from '../pages/auth/Login';
 import EmployeeDashboard from '../pages/employee/EmployeeDashboard';
+import LeavePage from '../pages/employee/LeavePage';
 import DashboardLayout from '../components/layout/DashboardLayout';
 
 // Loading screen
@@ -69,7 +70,7 @@ export default function AppRoutes() {
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<EmployeeDashboard />} />
         {/* Future pages: */}
-        {/* <Route path="leave" element={<LeavePage />} /> */}
+        <Route path="leave" element={<LeavePage />} />
         {/* <Route path="attendance" element={<AttendancePage />} /> */}
         {/* <Route path="projects" element={<ProjectsPage />} /> */}
         {/* <Route path="team" element={<TeamPage />} /> */}
