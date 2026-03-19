@@ -1,0 +1,127 @@
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.summary-card {
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-card);
+  animation: fadeInUp 0.4s ease both;
+  overflow: hidden;
+  position: relative;
+}
+
+.summary-card::after {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.22), rgba(255,255,255,0));
+  transform: rotate(25deg);
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.summary-card__title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
+}
+
+.summary-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.summary-card__value-main {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.summary-card__value-sep {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+}
+
+.summary-card__value-target {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.summary-card__delta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.summary-card__delta-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.summary-card__delta-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.summary-card__delta-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.summary-card__delta-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.summary-card--teal {
+  background: linear-gradient(135deg, #158F88 0%, #1AA49C 60%, #137D76 100%);
+}
+
+.summary-card--green {
+  background: linear-gradient(135deg, #0E8A2A 0%, #1CB34C 55%, #0F7A2C 100%);
+}
+
+.summary-card--blue {
+  background: linear-gradient(135deg, #0B5ED0 0%, #2C86FF 60%, #0A4FB3 100%);
+}
+
+.summary-card--orange {
+  background: linear-gradient(135deg, #E0552B 0%, #FF7A45 55%, #C9441E 100%);
+}
+
+@media (max-width: 1100px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,12 +1,7 @@
-import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
+import React, { useReducer, useEffect, useCallback } from 'react';
 import type { User, AuthState } from '../types';
 import { api } from '../services/api';
-
-// ===== CONTEXT TYPES =====
-interface AuthContextValue extends AuthState {
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => Promise<void>;
-}
+import { AuthContext } from './AuthContextInstance';
 
 // ===== REDUCER =====
 type AuthAction =
@@ -39,9 +34,6 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
       return state;
   }
 }
-
-// ===== CONTEXT =====
-const AuthContext = createContext<AuthContextValue | null>(null);
 
 // ===== PROVIDER =====
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -91,9 +83,5 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ===== HOOK =====
-export function useAuth() {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error('useAuth must be used within AuthProvider');
-  return ctx;
-}
+// NOTE: `useAuth` is exported from `src/context/useAuth.ts` to satisfy
+// react-refresh/only-export-components.

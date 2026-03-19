@@ -1,8 +1,11 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/useAuth';
 import Login from '../pages/auth/Login';
 import EmployeeDashboard from '../pages/employee/EmployeeDashboard';
 import LeavePage from '../pages/employee/LeavePage';
+import AttendancePage from '../pages/employee/AttendancePage';
+import TeamPage from '../pages/employee/TeamPage';
+import TeamDetailPage from '../pages/employee/TeamDetailPage';
 import DashboardLayout from '../components/layout/DashboardLayout';
 
 // Loading screen
@@ -71,9 +74,10 @@ export default function AppRoutes() {
         <Route path="dashboard" element={<EmployeeDashboard />} />
         {/* Future pages: */}
         <Route path="leave" element={<LeavePage />} />
-        {/* <Route path="attendance" element={<AttendancePage />} /> */}
+        <Route path="attendance" element={<AttendancePage />} />
         {/* <Route path="projects" element={<ProjectsPage />} /> */}
-        {/* <Route path="team" element={<TeamPage />} /> */}
+        <Route path="team" element={<TeamPage />} />
+        <Route path="team/:id" element={<TeamDetailPage />} />
         {/* <Route path="chat" element={<ChatPage />} /> */}
       </Route>
 

@@ -118,6 +118,36 @@ export interface TeamMember {
   status: 'active' | 'inactive';
 }
 
+export interface TeamFamilyMember {
+  id: string;
+  name: string;
+  relationship: string;
+  contactNumber: string;
+}
+
+export interface TeamEducationItem {
+  id: string;
+  institute: string;
+  course: string;
+  years: string;
+}
+
+export interface TeamProfile extends TeamMember {
+  employeeCode: string;
+  dateOfJoin: string;
+  experienceLabel: string;
+  birthday: string;
+  maritalStatus: string;
+  bloodGroup: string;
+  emergencyContactNumber: string;
+  nationality: string;
+  religion: string;
+  address: string;
+  about: string;
+  family: TeamFamilyMember[];
+  education: TeamEducationItem[];
+}
+
 // ===== CHART TYPES =====
 export interface TimelineBar {
   type: 'productive' | 'break' | 'overtime';

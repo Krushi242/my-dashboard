@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Clock, CalendarDays, FolderKanban,
   Users, MessageSquare, Bell, Settings, Shield, LogOut, ChevronLeft
 } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/useAuth';
 import './Sidebar.css';
 
 const EMPLOYEE_NAV = [

@@ -1,6 +1,6 @@
 import type {
   User, Attendance, Leave, LeaveBalance,
-  Holiday, Project, Task, Notification, Performance, TeamMember
+  Holiday, Project, Task, Notification, Performance, TeamMember, TeamProfile
 } from '../types';
 
 // ===== MOCK DATA =====
@@ -249,6 +249,32 @@ const MOCK_TEAM: TeamMember[] = [
   },
 ];
 
+const MOCK_TEAM_PROFILES: Record<string, TeamProfile> = {
+  'emp-001': {
+    ...MOCK_TEAM[0],
+    employeeCode: '0003',
+    dateOfJoin: '24 June 2024',
+    experienceLabel: '2.5+ Years',
+    birthday: '16 Nov 1995',
+    maritalStatus: 'No Married',
+    bloodGroup: 'A+',
+    emergencyContactNumber: '+91 00000XXXXX',
+    nationality: 'Indian',
+    religion: 'Muslim',
+    address: '521, Isquare Corporate Park, Scince city. 380085',
+    about:
+      'Lorem ipsum dolor sit amet consectetur. Diam sed odio velit auctor fringilla velit tortor pretium purus. Aliquam pharetra vestibulum facilisis pellentesque. Massa nisl et in praesent. Nam lorem amet tristique semper turpis habitant elit scelerisque nibh. Tempor aliquet tortor tortor odio orci. Massa id a sit augue. Pretium in vel porta sit vitae gravida amet. Mi ut ultrices velit urna.',
+    family: [
+      { id: 'fam-001', name: 'Hendry Peralt', relationship: 'Big Brother', contactNumber: '+91 00000XXXXX' },
+      { id: 'fam-002', name: 'Hendry Peralt', relationship: 'Brother', contactNumber: '+91 00000XXXXX' },
+    ],
+    education: [
+      { id: 'edu-001', institute: 'Oxford University', course: 'Computer Science', years: '2020 - 2022' },
+      { id: 'edu-002', institute: 'Cambridge University', course: 'Computer Network & Systems', years: '2016 - 2019' },
+    ],
+  },
+};
+
 // ===== SIMULATED API =====
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -363,6 +389,29 @@ export const api = {
     async getAll(): Promise<TeamMember[]> {
       await delay(400);
       return MOCK_TEAM;
+    },
+    async getById(id: string): Promise<TeamProfile> {
+      await delay(350);
+      const profile = MOCK_TEAM_PROFILES[id];
+      if (profile) return profile;
+      const fallback = MOCK_TEAM.find((m) => m.id === id);
+      if (!fallback) throw new Error('Team member not found');
+      return {
+        ...fallback,
+        employeeCode: '----',
+        dateOfJoin: '—',
+        experienceLabel: '—',
+        birthday: '—',
+        maritalStatus: '—',
+        bloodGroup: '—',
+        emergencyContactNumber: '—',
+        nationality: '—',
+        religion: '—',
+        address: '—',
+        about: '—',
+        family: [],
+        education: [],
+      };
     },
   },
 

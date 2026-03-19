@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Search, Bell, MessageSquare } from 'lucide-react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/useAuth';
 import './Header.css';
 
 interface HeaderProps {
